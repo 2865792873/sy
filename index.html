@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>玉渊潭无障碍智慧导览系统</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header>
+  <h1>玉渊潭公园无障碍智慧导览系统</h1>
+  <p>适用于行动不便老年游客的真实交互式路线规划平台</p>
+</header>
+
+<div class="container">
+
+  <aside class="sidebar">
+
+    <h2>路线规划</h2>
+
+    <label>起点</label>
+    <select id="start">
+      <option value="west">西门</option>
+      <option value="south">南门</option>
+      <option value="east">东门</option>
+      <option value="north">北门</option>
+    </select>
+
+    <label>目的地</label>
+    <select id="end">
+      <option value="sakura">樱花园</option>
+      <option value="culture">文化展示区</option>
+      <option value="lake">西湖观景区</option>
+      <option value="wetland">湿地区</option>
+    </select>
+
+    <label>路线模式</label>
+
+    <div class="modes">
+      <button class="mode active">最平缓</button>
+      <button class="mode">休息点最多</button>
+      <button class="mode">最短距离</button>
+    </div>
+
+    <button class="main-btn" onclick="generateRoute()">
+      生成无障碍路线
+    </button>
+
+    <div class="info-box" id="routeInfo">
+      请先生成路线
+    </div>
+
+    <button class="voice-btn" onclick="playVoice()">
+      播放语音导航
+    </button>
+
+    <button class="danger-btn" onclick="emergency()">
+      一键求助
+    </button>
+
+  </aside>
+
+  <main>
+
+    <div id="map"></div>
+
+    <div class="legend">
+      <div><span class="blue"></span> 无障碍路线</div>
+      <div><span class="green"></span> 休息区</div>
+      <div><span class="red"></span> 无障碍卫生间</div>
+    </div>
+
+  </main>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
